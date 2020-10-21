@@ -13,6 +13,10 @@ public class Chaayos_LoginpageTestCase extends Ch_Base_Page
 	public void chaayos_Application_login() throws InterruptedException
 	{
 		Ch_Loginpage = new Chaayos_LoginPage(driver);
+		Ch_Loginpage.clickDineIn();
+		Thread.sleep(3000);
+		Ch_Loginpage.selectcityfromcityOption();
+		Thread.sleep(3000);
 		Ch_Loginpage.clickMenuIcon();
 		Thread.sleep(3000);
 		Ch_Loginpage.clickLogininMenu();
