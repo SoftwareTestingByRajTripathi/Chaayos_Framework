@@ -18,7 +18,7 @@ public class Ch_Base_Page {
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-			driver.get("https://www.extramarks.com/");
+			driver.get("http://54.169.58.110/");
 			driver.manage().deleteAllCookies();
 		}
 	@AfterTest
