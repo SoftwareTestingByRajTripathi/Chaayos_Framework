@@ -1,5 +1,7 @@
 package com.chaayostest_webpage;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.chaayos_utility.ScreenShots;
 
 //********* LoginPage of Chaayos Application using POM Design Pattern***********//
 //================Maintain Locator and Method using POM Pattern=================//
@@ -23,6 +27,7 @@ public class Chaayos_LoginPage {
 	@FindBy(xpath = "//input[@id='otpInput']")WebElement Otpcode;
 	@FindBy (xpath = "//div[contains(text(),'Verify')]")WebElement OtpVerify;
 	@FindBy (css = "#react-select-3--value > div.Select-placeholder")WebElement areaDropDown;
+	//=========== define constructor========================//
 	public Chaayos_LoginPage (WebDriver driver)
 	{
 		this.driver=driver;
@@ -70,5 +75,11 @@ public class Chaayos_LoginPage {
 	public void loging_otpverifybutton()
 	{
 		OtpVerify.click();
+	}
+	public void Screenshot() throws IOException
+	{
+		ScreenShots ts = new ScreenShots();
+		ts.screenShot(driver,"login");
+		
 	}
 }

@@ -1,5 +1,7 @@
 package com.chaayostestcase;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,7 +12,7 @@ public class Chaayos_LoginpageTestCase extends Ch_Base_Page
 {
 	Chaayos_LoginPage Ch_Loginpage;
 	@Test
-	public void chaayos_Application_login() throws InterruptedException
+	public void chaayos_Application_login() throws InterruptedException, IOException
 	{
 		Ch_Loginpage = new Chaayos_LoginPage(driver);
 		Ch_Loginpage.clickDineIn();
@@ -26,6 +28,7 @@ public class Chaayos_LoginpageTestCase extends Ch_Base_Page
 		Ch_Loginpage.clickLoginButton();
 		Ch_Loginpage.loginotpcode("1234");
 		Ch_Loginpage.loging_otpverifybutton();
+		Ch_Loginpage.Screenshot();
 		String ActualUrl = driver.getCurrentUrl();
 		String exceptedUrl = "http://54.169.58.110/menu";
 		Assert.assertEquals(exceptedUrl, ActualUrl);

@@ -11,8 +11,9 @@ import org.testng.annotations.BeforeTest;
 public class Ch_Base_Page {
 	
 	public WebDriver driver;
+	//==============for browser lunch==========================//
 	@BeforeTest
-		public void startBroser()//for browser lunch//
+		public void startBroser()
 		{
 			System.setProperty("webdriver.chrome.driver","C:\\Users\\Extramarks\\Desktop\\ChromeDriver86\\chromedriver.exe");
 			driver = new ChromeDriver();
@@ -21,8 +22,9 @@ public class Ch_Base_Page {
 			driver.get("http://54.169.58.110/");
 			driver.manage().deleteAllCookies();
 		}
+	//===========================for browser close==================//
 	@AfterTest
-		public void closeBrowser()//for browser close
+		public void closeBrowser()
 		{
 			driver.close();
 		}
