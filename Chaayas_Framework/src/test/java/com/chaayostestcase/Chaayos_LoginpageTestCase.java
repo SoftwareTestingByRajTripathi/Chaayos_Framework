@@ -17,6 +17,7 @@ public class Chaayos_LoginpageTestCase extends Ch_Base_Page
 		Thread.sleep(3000);
 		Ch_Loginpage.selectcityfromcityOption();
 		Thread.sleep(3000);
+		Ch_Loginpage.select_Area();
 		Ch_Loginpage.clickMenuIcon();
 		Thread.sleep(3000);
 		Ch_Loginpage.clickLogininMenu();
