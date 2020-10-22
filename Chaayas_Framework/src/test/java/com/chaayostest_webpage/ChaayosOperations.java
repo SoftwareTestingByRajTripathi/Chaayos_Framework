@@ -31,15 +31,28 @@ public class ChaayosOperations{
 	@FindBy (xpath = "//div[text()='Login']") 
 	WebElement Loginmenu;
 
-	@FindBy(xpath = "//input[@id='userContactInput']") WebElement usermob;
-	@FindBy (xpath= "//div[text()='Login'][2]") WebElement clickLogin;
-	@FindBy(xpath = "//input[@id='otpInput']")WebElement Otpcode;
-	@FindBy (xpath = "//div[contains(text(),'Verify')]")WebElement OtpVerify;
-	@FindBy (css = "#react-select-3--value > div.Select-placeholder")WebElement areaDropDown;
-
+	@FindBy(xpath = "//input[@id='userContactInput']") 
+	WebElement usermob;
+	
+	@FindBy (xpath= "//div[text()='Login'][2]")
+	WebElement clickLogin;
+	
+	@FindBy(xpath = "//input[@id='otpInput']")
+	WebElement Otpcode;
+	
+	@FindBy (xpath = "//div[contains(text(),'Verify')]")
+	WebElement OtpVerify;
+	
 	@FindBy (css = "#react-select-3--value > div.Select-placeholder")
-	ArrayList<WebElement> productName;
+	WebElement areaDropDown;
 
+	@FindBy (xpath = "//div[@class='productDetail']")
+	ArrayList<WebElement> productName;
+	
+	@FindBy (xpath ="//*[@id='MilkChai']/div[2]/div[6]/div[2]/div[2]/div[3] ")
+	WebElement DesiChai;
+	@FindBy (xpath = "//*[@id='MilkChai']/div[2]/div[5]/div[2]/div[2]/div[2]/span")
+	WebElement haldiDoodh;
 	
 	/*
 	 * Created constructor
@@ -54,25 +67,24 @@ public class ChaayosOperations{
 		DineIn.click();
 	}
 	
-	public void selectCityFromCityOption()
-	{
+	public void selectCityFromCityOption(){
 		Selectcity.click();
 	}
-	public void select_Area()
-	{
+	
+	public void select_Area(){
 
 		wait.until(ExpectedConditions.elementToBeClickable(areaDropDown));
 		areaDropDown.click();
 	}
 
-	public void clickMenuIcon()
-	{
+	public void clickMenuIcon(){
 		MenuIcon.click();
 	}
-	public void clickLogininMenu()
-	{
+	
+	public void clickLogininMenu(){
 		Loginmenu.click();
 	}
+	
 	public void usermobile_number(String mobno)
 	{
 		usermob.sendKeys(mobno);
@@ -81,20 +93,20 @@ public class ChaayosOperations{
 	{
 		clickLogin.click();
 	}
-	public void loginotpcode(String otp_code)
-	{
+	public void loginotpcode(String otp_code){
 		Otpcode.sendKeys(otp_code);
 	}
-	public void loging_otpverifybutton() throws IOException
-	{
+	
+	public void loging_otpverifybutton() throws IOException{
 		OtpVerify.click();
 		ScreenShots.screenShot(driver, "otpScreen");
 	}
+	
 	public void selecDesiChai(){
 		
 		for(int i=0; i<productName.size();i++){
-			if(productName.get(i).getText().equals("Chai")){
-				//desi chai + button locator .click
+			if(productName.get(i).getText().equals("Desi Chai")){
+				DesiChai.click();
 				break;
 			}
 		}
@@ -103,8 +115,8 @@ public class ChaayosOperations{
 public void selecHaldiDoodh(){
 		
 		for(int i=0; i<productName.size();i++){
-			if(productName.get(i).getText().equals("")){
-				//desi chai + button locator .click
+			if(productName.get(i).getText().equals("Haldi Doodh")){
+				haldiDoodh.click();
 				break;
 			}
 		}
