@@ -16,24 +16,25 @@ public class BookOrder extends Ch_Base_Page
 	{
 		ch= new ChaayosOperations(driver);
 		ch.clickDineIn();
-		Thread.sleep(3000);
 		ch.selectCityFromCityOption();
-		Thread.sleep(3000);
 		ch.select_Area();
-		ch.clickMenuIcon();
-		Thread.sleep(3000);
-		ch.clickLogininMenu();
-		Thread.sleep(3000);
+		ch.selectDesiChai();
+		ch.selectHaldiDoodh();
+		ch.addToCart();
+		ch.Mycart();
+		ch.placeOrder();
+		//ch.clickMenuIcon();
+		//ch.clickLogininMenu();
 		ch.usermobile_number("7838774492");
 		ch.clickLoginButton();
 		ch.loginotpcode("1234");
 		ch.loging_otpverifybutton();
-		String ActualUrl = driver.getCurrentUrl();
-		String exceptedUrl = "http://54.169.58.110/menu";
-		Assert.assertEquals(exceptedUrl, ActualUrl);
-		System.out.println("Login Sucessfully");
+		ch.selectPaymentOption();
+		ch.selectIciciBank();
+		ch.ClickOnPaymentButton();
 		
-		ch.selecDesiChai();
+		
+		
 		
 	}
 
