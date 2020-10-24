@@ -185,9 +185,10 @@ public class ChaayosOperations{
 		
 	}
 	/*This method is used to click payment success options*/
-	public void paymentSuccess(){
+	public void paymentSuccess() throws IOException{
 		wait.until(ExpectedConditions.elementToBeClickable(Payemetsucess));
 		Payemetsucess.click();
+		ScreenShots.screenShot(driver, "Payemetsucess");
 		
 	}
 	/*This method is used to Verify order summary page*/
