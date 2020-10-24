@@ -1,6 +1,7 @@
 package com.chaayostestcase;
 
 import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.ch_base_page.Ch_Base_Page;
@@ -32,9 +33,10 @@ public class BookOrder extends Ch_Base_Page
 		ch.selectPaymentOption();
 		ch.selectIciciBank();
 		ch.ClickOnPaymentButton();
-		
-		
-		
+		ch.paymentSuccess();
+		Assert.assertEquals(ch.getDesiChaiText(), ch.DESICHAI);
+		Assert.assertEquals(ch.getHaldiDoodhText(), ch.HALDIDOODH);
+		Assert.assertEquals(ch.getOrderSummaryPageTitle(), ch.ORDERSUMMARYPAGETITLE);
 		
 	}
 

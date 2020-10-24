@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
-//with the help of this class lunch the web browser and close it 
+//with the help of this class lunch the web browser and close it //
 public class Ch_Base_Page {
 	
 	public WebDriver driver;

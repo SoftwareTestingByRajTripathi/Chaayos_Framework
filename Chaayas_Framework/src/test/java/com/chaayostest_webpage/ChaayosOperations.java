@@ -68,6 +68,18 @@ public class ChaayosOperations{
 	WebElement SelectICICIBank;
 	@FindBy (css="body:nth-child(2) div:nth-child(2) div:nth-child(1) div:nth-child(1) > div:nth-child(1)")
 	WebElement payWithAamount;
+	@FindBy (xpath="//div[contains(text(),'Desi Chai')]")
+	WebElement Desi_Chai;
+	@FindBy (xpath = "//div[contains(text(),' Haldi Doodh')]")
+	WebElement Haldi_doodh;
+	@FindBy (xpath = "//button[@class='Success']")
+	WebElement Payemetsucess;
+	
+	public final String ORDERSUMMARYPAGETITLE="Chaayos - Order Chai Online - Experiments With Chai";
+	
+	public final String DESICHAI="Desi Chai";
+	
+	public final String HALDIDOODH=" Haldi Doodh";
 	
 	/*
 	 * Created constructor
@@ -104,7 +116,7 @@ public class ChaayosOperations{
 	public void selectDesiChai(){
 		
 		for(int i=0; i<productName.size();i++){
-			if(productName.get(i).getText().equals("Desi Chai")){
+			if(productName.get(i).getText().equals(DESICHAI)){
 				DesiChai.click();
 				break;
 			}
@@ -114,7 +126,7 @@ public class ChaayosOperations{
 	public void selectHaldiDoodh(){
 		
 		for(int i=0; i<productName.size();i++){
-			if(productName.get(i).getText().equals("Haldi Doodh")){
+			if(productName.get(i).getText().equals(HALDIDOODH)){
 				haldiDoodh.click();
 				break;
 			}
@@ -129,47 +141,65 @@ public class ChaayosOperations{
 	public void Mycart(){
 		mycart.click();
 }
-	
+	/*This Method is used to Place the order */
 	public void placeOrder(){
 		wait.until(ExpectedConditions.elementToBeClickable(placeOrder));
 		placeOrder.click();
 		
 	}
-	
+	/*This Method is used to enter the mobile number in mobile number field during login with Mobile Number*/
 	public void usermobile_number(String mobno)
 	{
 		wait.until(ExpectedConditions.elementToBeClickable(usermob));
 		usermob.sendKeys(mobno);
 	}
-	
+	/*This method is used to click login button after enter the mobile number*/
 	public void clickLoginButton()
 	{
 		clickLogin.click();
 	}
+	/*This number is used to enter OPT received from mobile number */
 	public void loginotpcode(String otp_code){
 		wait.until(ExpectedConditions.elementToBeClickable(Otpcode));
 		Otpcode.sendKeys(otp_code);
 	}
-	
+	/*This Method is used to verify opt button */
 	public void loging_otpverifybutton() throws IOException{
 		OtpVerify.click();
 		ScreenShots.screenShot(driver, "otpScreen");
 	}
-	
+	/*This method is used to Select Payment option in Payment screen page*/
 	public void selectPaymentOption(){
 		wait.until(ExpectedConditions.elementToBeClickable(paymentOptions));
 		paymentOptions.click();
 	}
-	
+	/*This method is used to select ICICI bank from bank list*/
 	public void selectIciciBank(){
 		SelectICICIBank.click();
 	}
-	
+	/*This method is used to payment button*/
 	public void ClickOnPaymentButton() throws IOException{
 		wait.until(ExpectedConditions.elementToBeClickable(payWithAamount));
 		payWithAamount.click();
 		ScreenShots.screenShot(driver, "payWithAamount");
 		
 	}
-
+	/*This method is used to click payment success options*/
+	public void paymentSuccess(){
+		wait.until(ExpectedConditions.elementToBeClickable(Payemetsucess));
+		Payemetsucess.click();
+		
+	}
+	/*This method is used to Verify order summary page*/
+	public String getOrderSummaryPageTitle(){
+		return driver.getTitle();
+	}
+	/*This method is used to Verify product in cart page*/
+	public String getDesiChaiText(){
+		return Desi_Chai.getText(); 
+	}
+	
+	public String getHaldiDoodhText(){
+		return Haldi_doodh.getText();
+	}
 }
